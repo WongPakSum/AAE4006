@@ -53,7 +53,7 @@ function out = forces_moments(x, delta, wind, P)
     V_w_b = R_v_b*[w_ns; w_es; w_ds]+[u_wg; v_wg; w_wg];
 
     % Compute overall wind in NED frame
-    V_w_NED = [w_ns; w_es; w_ds]+R_b_v*[u_wg;v_wg;w_wg];
+    V_w_NED = [w_ns; w_es; w_ds]+R_b_v*[u_wg; v_wg; w_wg];
 
     % define the wind components in NED frame
     w_n = V_w_NED(1);
