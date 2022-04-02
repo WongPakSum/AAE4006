@@ -73,7 +73,7 @@ simStateCompliance = 'UnknownSimState';
 function sys = mdlDerivatives(t, x, uu, P)
     pn    = x(1);
     pe    = x(2);
-    pd    = x(3);                                                                                                                                                                                                             
+    pe    = x(3);
     u     = x(4);
     v     = x(5);
     w     = x(6);
@@ -108,7 +108,7 @@ function sys = mdlDerivatives(t, x, uu, P)
     gam7 = ((P.Jx - P.Jy)*P.Jx + P.Jxz^2)/gamma;
     gam8 = P.Jx/gamma;
     % Time derivative of p, q, r
-    attratdot = [gam1*p*q-gam2*q*r;gam5*p*r-gam6(p^2-r^2);gam7*pq-gam1*q*r]+[gam3*ell+gam4*n;1/P.Jy*m;gam4*ell+gam8*n]; % To be completed by students
+    attratdot = [gam1*p*q-gam2*q*r; gam5*p*r-gam6*(p^2-r^2); gam7*p*q-gam1*q*r]+[gam3*ell+gam4*n;1/P.Jy*m; gam4*ell+gam8*n]; % To be completed by students
   
     pndot = neddot(1);
     pedot = neddot(2);
@@ -168,5 +168,3 @@ sys = t + sampleTime;
 function sys = mdlTerminate(t,x,u)
 
 sys = [];
-
-% end mdlTerminate
